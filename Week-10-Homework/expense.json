@@ -1,0 +1,108 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Donut Charts of Total Counts for Selected Cities",
+    "title": {
+        "text": "DISTRIBUTION OF EXPENSES IN MAJOR CITIES IN AUSTRALIA",
+        "fontSize": 15,
+        "color": "black"
+    },
+    "config": {
+        "legend": {
+            "labelColor": "black",
+            "titleColor": "black",
+            "orient": "bottom"
+        },
+        "view": {
+            "stroke": null
+        }
+    },
+    "data": {
+        "url": "https://raw.githubusercontent.com/jytKelly12/FIT3179/main/cost-of-living_v2.csv",
+        "format": {
+            "type": "csv"
+        }
+    },
+    "params": [
+        {
+            "name": "City_selection",
+            "value": "Melbourne", 
+            "bind": {
+                "input": "select",
+                "options": [
+                    "Melbourne",
+                    "Sydney",
+                    "Brisbane",
+                    "Adelaide",
+                    "Canberra",
+                    "Gold Coast"
+                ],
+                "labels": [
+                    "Melbourne",
+                    "Sydney",
+                    "Brisbane",
+                    "Adelaide",
+                    "Canberra",
+                    "Gold Coast"
+                ],
+                "name": "City Selection:"
+            }
+        }
+    ],
+    "transform": [
+        {
+            "fold": [
+                "x28",
+                "x36",
+                "x45",
+                "x2",
+                "x39"
+            ],
+            "as": [
+                "Category",
+                "Value"
+            ]
+        },
+        {
+            "calculate": "datum.Category === 'x28' ? 'Transport' : datum.Category === 'x36' ? 'Utilities' : datum.Category === 'x45' ? 'Clothing' : datum.Category === 'x2' ? 'Restaurant' : datum.Category === 'x39' ? 'Sports' : 'Other'",
+            "as": "Category"
+        },
+        {
+            "filter": "datum.country === 'Australia' && !isNaN(+datum.x28) && !isNaN(+datum.x36) && !isNaN(+datum.x45) && !isNaN(+datum.x2) && !isNaN(+datum.x39)"
+        },
+        
+            {"filter":"datum.city == City_selection"}
+            
+
+    ],
+    "mark": {
+        "type": "arc",
+        "tooltip": true,
+        "innerRadius": 70
+    },
+    "encoding": {
+        "theta": {
+            "field": "Value",
+            "type": "quantitative"
+        },
+        "color": {
+            "field": "Category",
+            "type": "nominal",
+            "scale": {
+                "domain": [
+                    "Transport",
+                    "Utilities",
+                    "Clothing",
+                    "Restaurant",
+                    "Sports"
+                ],
+                "range": [
+                    "#ABDEEE",
+                    "#CBAACB",
+                    "#FFFFB5",
+                    "#C9E4DE",
+                    "#FCD5CE"
+                ]
+            }
+        }
+    }
+}
