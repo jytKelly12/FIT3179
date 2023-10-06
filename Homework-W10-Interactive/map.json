@@ -1,0 +1,160 @@
+{
+    "$schema": "https://vega.github.io/schema/vega/v5.json",
+    "background": "white",
+    "padding": 5,
+    "width": 800,
+    "height": 450,
+    "title": {"text": "Global Cost of Living in 2022", "frame": "group"},
+    "style": "view",
+    "data": [
+      {"name": "source"},
+      {
+        "name": "source_0",
+        "url": "https://vega.github.io/vega/data/graticule.json",
+        "format": {"type": "json"}
+      },
+      {
+        "name": "source_1",
+        "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/ne_110m_admin_0_countries.topojson",
+        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+      },
+      {
+        "name": "source_2",
+        "url": "https://raw.githubusercontent.com/jytKelly12/FIT3179/main/Cost_of_Living_Index_with_Lat_Lon_2022.csv",
+        "format": {"type": "csv", "delimiter": ","},
+        "transform": [
+          {
+            "type": "geojson",
+            "fields": ["longitude", "latitude"],
+            "signal": "layer_3_geojson_0"
+          },
+          {
+            "type": "geopoint",
+            "projection": "projection",
+            "fields": ["longitude", "latitude"],
+            "as": ["layer_3_x", "layer_3_y"]
+          },
+          {
+            "type": "filter",
+            "expr": "isValid(datum[\"Local Purchasing Power Index\"]) && isFinite(+datum[\"Local Purchasing Power Index\"]) && isValid(datum[\"Cost of Living Index\"]) && isFinite(+datum[\"Cost of Living Index\"])"
+          }
+        ]
+      }
+    ],
+    "projections": [
+      {
+        "name": "projection",
+        "size": {"signal": "[width, height]"},
+        "fit": {
+          "signal": "[data('source_0'), data('source_1'), data('source'), layer_3_geojson_0]"
+        },
+        "type": "equalEarth"
+      }
+    ],
+    "marks": [
+      {
+        "name": "layer_0_marks",
+        "type": "shape",
+        "style": ["geoshape"],
+        "from": {"data": "source_0"},
+        "encode": {
+          "update": {
+            "stroke": {"value": "lightgray"},
+            "strokeWidth": {"value": 0.5},
+            "fill": {"value": "#4c78a8"},
+            "ariaRoleDescription": {"value": "geoshape"}
+          }
+        },
+        "transform": [{"type": "geoshape", "projection": "projection"}]
+      },
+      {
+        "name": "layer_1_marks",
+        "type": "shape",
+        "style": ["geoshape"],
+        "from": {"data": "source_1"},
+        "encode": {
+          "update": {
+            "fill": {"value": "lightgray"},
+            "stroke": {"value": "white"},
+            "ariaRoleDescription": {"value": "geoshape"}
+          }
+        },
+        "transform": [{"type": "geoshape", "projection": "projection"}]
+      },
+      {
+        "name": "layer_2_marks",
+        "type": "shape",
+        "style": ["geoshape"],
+        "from": {"data": "source"},
+        "encode": {
+          "update": {
+            "stroke": {"value": "blue"},
+            "strokeWidth": {"value": 1},
+            "fill": {"value": "#4c78a8"},
+            "ariaRoleDescription": {"value": "geoshape"}
+          }
+        },
+        "transform": [{"type": "geoshape", "projection": "projection"}]
+      },
+      {
+        "name": "layer_3_marks",
+        "type": "symbol",
+        "style": ["circle"],
+        "from": {"data": "source_2"},
+        "encode": {
+          "update": {
+            "opacity": {"value": 0.7},
+            "tooltip": {
+               "signal": "{'Country: ': datum.Country, 'Cost of Living Index Index: ': datum['Cost of Living Index'], 'Local Purchasing Power Index: ': datum['Local Purchasing Power Index']}"
+        },
+            "fill": {"scale": "color", "field": "Local Purchasing Power Index"},
+            "ariaRoleDescription": {"value": "circle"},
+            "x": {"field": "layer_3_x"},
+            "y": {"field": "layer_3_y"},
+            "size": {"scale": "size", "field": "Cost of Living Index"},
+            "shape": {"value": "circle"}
+          }
+        }
+      }
+    ],
+    "scales": [
+      {
+        "name": "color",
+        "type": "linear",
+        "domain": {"data": "source_2", "field": "Local Purchasing Power Index"},
+        "range": {"scheme": "reds"},
+        "interpolate": "hcl",
+        "zero": false
+      },
+      {
+        "name": "size",
+        "type": "linear",
+        "domain": [0, 150],
+        "range": [0, 361],
+        "zero": true
+      }
+    ],
+    "legends": [
+      {
+        "title": "Local Purchasing Power Index",
+        "fill": "color",
+        "gradientLength": {"signal": "clamp(height, 64, 200)"},
+        "encode": {"gradient": {"update": {"opacity": {"value": 0.7}}}}
+      },
+      {
+        "title": "Cost of Living Index",
+        "size": "size",
+        "symbolType": "circle",
+        "encode": {
+          "symbols": {
+            "update": {
+              "fill": {"value": "black"},
+              "fillOpacity": {"value": 0.7},
+              "opacity": {"value": 0.7}
+            }
+          }
+        }
+      }
+    
+    ]
+  }
