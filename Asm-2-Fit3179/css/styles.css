@@ -1,0 +1,121 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #AEC6CF; 
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  width: 80%; /* Responsive width */
+  background-color: #faf0e6;
+  margin: auto;
+  padding: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth perception */
+}
+
+.header {
+  text-align: center;
+  padding: 20px;
+  background-color: #FFCCB6; 
+  font-size: 1000;
+  font-weight: bolder;
+}
+
+.title {
+  padding: 10px;
+  background-color: #AEC6CF; 
+  font-size: 10;
+  font-weight: bolder;
+  text-transform: uppercase;
+  font-family: 'AR One Sans', sans-serif;
+  margin-left: 20px; 
+  margin-right: 20px; 
+}
+
+
+.introduction,
+.map,
+.visualizations {
+  margin: 30px 0; /* Added margin for better spacing */
+}
+
+/* Add this CSS code to your styles.css file */
+.vis-container {
+  display: inline-block;
+  width: 40; /* Adjust the width as needed */
+  margin-right: 300; /* Add some spacing between the visualizations */
+  vertical-align: top; /* Align the visualizations to the top */
+  box-sizing: border-box; /* Include padding and border in the width calculation */
+}
+
+
+
+.bodytext {
+  font-weight: 100;
+  font-family: 'AR One Sans', sans-serif;
+}
+
+.blue-font {
+  font-weight: 600;
+  color: black;
+  text-transform: uppercase;
+}
+
+.line {
+  margin: 10px 0;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, black 0 5px, #0000 0 10px);
+}
+
+.dashed-line {
+  width: 100%; /* Adjust the width as needed */
+  height: 1px; /* Adjust the height as needed */
+  border-top: 2px dashed #000; /* Adjust the color and thickness as needed */
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 10px;
+}
+
+
+#vis4 {
+  grid-column: 1 / span 2;  /* This will make it span columns 1 and 2 */
+  grid-row: 1 / span 2;     /* This will make it span rows 1 and 2 */
+}
+
+#vis3 {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+#vis8 {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+#vis9 {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+#vis10 {
+  grid-column: 4;
+  grid-row: 2;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vis1-container {
+  padding: 10px;
+  height: 300px;  /* Adjust as needed */
+}
+
+
+
+.column {
+  width: 60%; /* Adjust as needed */
+}
