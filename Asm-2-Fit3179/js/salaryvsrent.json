@@ -4,51 +4,106 @@
   "params": [
     {
       "name": "Affordability_Selection",
-      "value": 500,
+      "value": 10,
       "bind": {
         "input": "range",
-        "min": 500,
-        "max": 3500,
-        "step": 50,
-        "name": "Salary - Rent: "
+        "min": 10,
+        "max": 60,
+        "step": 10,
+        "name": "Proportion: "
       }
+    },
+    {
+      "name": "City_Selection",
+      "value": "All Cities",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All Cities",
+          "Melbourne",
+          "Gold Coast",
+          "Sydney",
+          "Brisbane",
+          "Adelaide",
+          "Canberra"
+        ],
+        "name": "Major Cities: "
+      }
+    }
+  ],
+  "data": {
+    "url": "https://raw.githubusercontent.com/jytKelly12/FIT3179/main/cost-of-living_v2.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.x54>datum.x48 && datum.country === 'Australia' && (City_Selection === 'All Cities' || datum.city === City_Selection) && datum.x54 !== 'nan' && datum.x48 !== 'nan'"
     }
   ],
   "hconcat": [
     {
-      "width": 200,
-      "height": 400,
+      "width": 400,
+      "height": 385,
       "title": {
         "text": "Apartment in City Center",
         "fontSize": 15,
         "color": "black"
       },
-      "data": {
-        "url": "https://raw.githubusercontent.com/jytKelly12/FIT3179/main/cost-of-living_v2.csv",
-        "format": {"type": "csv"}
-      },
       "transform": [
         {
-          "filter": "datum.country === 'Australia' && datum.x54 !== 'nan' && datum.x48 !== 'nan' "
+          "filter": "datum.x48 !== 'nan'"
         },
-        {"calculate": "datum.x54 - datum.x48", "as": "Affordability"},
         {
-          "window": [{"op": "rank", "as": "rank", "field": "Affordability"}],
-          "sort": [{"field": "Affordability", "order": "descending"}]
+          "calculate": "100-((datum.x54 - datum.x48)/datum.x54) *100",
+          "as": "Affordability"
         },
-        {"filter": "datum.Affordability >= Affordability_Selection"}
+        {
+          "window": [
+            {
+              "op": "rank",
+              "as": "rank",
+              "field": "Affordability"
+            }
+          ],
+          "sort": [
+            {
+              "field": "Affordability",
+              "order": "descending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.Affordability >= Affordability_Selection"
+        }
       ],
       "layer": [
         {
-          "mark": {"type": "circle", "tooltip": true, "size": 200},
+          "mark": {
+            "type": "circle",
+            "tooltip": true,
+            "size": 200
+          },
           "encoding": {
             "x": {
               "field": "x54",
               "type": "quantitative",
               "title": "Average Monthly Net Salary (After Tax) (USD)",
               "scale": {
-                "domain": [2000, 5000],
-                "bins": [2000, 2500, 3000, 3500, 4000, 4500, 5000]
+                "domain": [
+                  2000,
+                  5000
+                ],
+                "bins": [
+                  2000,
+                  2500,
+                  3000,
+                  3500,
+                  4000,
+                  4500,
+                  5000
+                ]
               }
             },
             "y": {
@@ -63,6 +118,25 @@
                 "labelFontWeight": "bold",
                 "titleFontWeight": "bolder",
                 "grid": false
+              },
+              "scale": {
+                "domain": [
+                  0,
+                  2500
+                ],
+                "bins": [
+                  0,
+                  250,
+                  500,
+                  750,
+                  1000,
+                  1250,
+                  1500,
+                  1750,
+                  2000,
+                  2250,
+                  2500
+                ]
               }
             },
             "color": {
@@ -72,11 +146,18 @@
               },
               "field": "Affordability",
               "type": "quantitative",
-              "title": "Affordability",
-              "scale": {"range": ["red", "white", "blue"]}
+              "scale": {
+                "range": [  
+                  "green","blue"
+                ]
+              }
             },
             "tooltip": [
-              {"field": "city", "type": "nominal", "title": "City"},
+              {
+                "field": "city",
+                "type": "nominal",
+                "title": "City"
+              },
               {
                 "field": "x54",
                 "type": "ordinal",
@@ -86,126 +167,250 @@
                 "field": "x48",
                 "type": "quantitative",
                 "title": "Apartment (1 bedroom) in City Centre (USD)"
+              },
+              {
+                "field": "Affordability",
+                "type": "quantitative",
+                "title": "Affordability"
               }
             ]
           }
         },
         {
-          "mark": {"type": "text", "dx": 100, "dy": 45, "baseline": "middle"},
+          "mark": "text",
+          "transform": [
+            {
+              "filter": "datum.rank === 1 || datum.rank === {param: 'Affordability_Selection'}"
+            },
+            {
+              "calculate": "datum.city + ' is the least affordable'",
+              "as": "leastAffordableLabel"
+            }
+          ],
           "encoding": {
-            "text": {"value": " Muswellbrook apartments in city "},
-            "x": {"value": 0},
-            "y": {"value": 0}
+            "x": {
+              "field": "x54",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "x48",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "leastAffordableLabel",
+              "type": "nominal"
+              
+            }
           }
         },
         {
-          "mark": {"type": "text", "dx": 100, "dy": 60, "baseline": "middle"},
+          "mark": "text",
+          "transform": [
+            {
+              "filter": "datum.city == 'Darwin'"
+            }
+          ],
           "encoding": {
-            "text": {"value": "center is the least affordable "},
-            "x": {"value": 0},
-            "y": {"value": 0}
-          }
-        },
-        {
-          "mark": {"type": "text", "dx": 160, "dy": 245, "baseline": "middle"},
-          "encoding": {
-            "text": {"value": " Darwin apartments in"},
-            "x": {"value": 0},
-            "y": {"value": 0}
-          }
-        },
-        {
-          "mark": {"type": "text", "dx": 160, "dy": 260, "baseline": "middle"},
-          "encoding": {
-            "text": {"value": "city center is "},
-            "x": {"value": 0},
-            "y": {"value": 0}
-          }
-        },
-        {
-          "mark": {"type": "text", "dx": 160, "dy": 275, "baseline": "middle"},
-          "encoding": {
-            "text": {"value": "the most affordable "},
-            "x": {"value": 0},
-            "y": {"value": 0}
+            "x": {
+              "field": "x54",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "x48",
+              "type": "quantitative"
+            },
+            "text": {
+              "value": "Darwin is the most affordable"
+            }
           }
         }
       ]
     },
     {
-      "width": 200,
-      "height": 400,
+      "width": 400,
+      "height": 385,
       "title": {
         "text": "Apartment Outside City Center",
         "fontSize": 15,
         "color": "black"
       },
-      "data": {
-        "url": "https://raw.githubusercontent.com/jytKelly12/FIT3179/main/cost-of-living_v2.csv",
-        "format": {"type": "csv"}
-      },
       "transform": [
         {
-          "filter": "datum.country === 'Australia' && datum.x54 !== 'nan' && datum.x49 !== 'nan' "
+          "filter": "datum.x49 !== 'nan'"
         },
-        {"calculate": "datum.x54 - datum.x49", "as": "Affordability"},
-        {"filter": "datum.Affordability >= Affordability_Selection"}
+        {
+          "calculate": "100-((datum.x54 - datum.x49)/datum.x54) *100",
+          "as": "Affordability"
+        },
+        {
+          "window": [
+            {
+              "op": "rank",
+              "as": "rank",
+              "field": "Affordability"
+            }
+          ],
+          "sort": [
+            {
+              "field": "Affordability",
+              "order": "descending"
+            }
+          ]
+        },
+        {
+          "filter": "datum.Affordability >= Affordability_Selection"
+        }
       ],
-      "mark": {
-        "type": "square",
-        "tooltip": true,
-        "size": 200,
-        "cornerRadius": 10
-      },
-      "encoding": {
-        "x": {
-          "field": "x54",
-          "type": "quantitative",
-          "title": "Average Monthly Net Salary (After Tax) (USD)",
-          "scale": {
-            "domain": [2000, 5000],
-            "bins": [2000, 2500, 3000, 3500, 4000, 4500, 5000]
-          }
-        },
-        "y": {
-          "field": "x49",
-          "type": "quantitative",
-          "title": "Rent Price",
-          "axis": {
-            "domain": false,
-            "gridColor": "#242c32",
-            "labelColor": "black",
-            "titleColor": "black",
-            "labelFontWeight": "bold",
-            "titleFontWeight": "bolder",
-            "grid": false
-          }
-        },
-        "color": {
-          "condition": {
-            "test": "datum.Affordability === {param: \"Affordability\"}",
-            "value": "gold"
+      "layer": [
+        {
+          "mark": {
+            "type": "square",
+            "tooltip": true,
+            "size": 200,
+            "cornerRadius": 10
           },
-          "field": "Affordability",
-          "type": "quantitative",
-          "title": "Affordability",
-          "scale": {"range": ["red", "white", "blue"]}
-        },
-        "tooltip": [
-          {"field": "city", "type": "nominal", "title": "City"},
+          "encoding": {
+            "x": {
+              "field": "x54",
+              "type": "quantitative",
+              "title": "Average Monthly Net Salary (After Tax) (USD)",
+              "scale": {
+                "domain": [
+                  2000,
+                  5000
+                ],
+                "bins": [
+                  2000,
+                  2500,
+                  3000,
+                  3500,
+                  4000,
+                  4500,
+                  5000
+                ]
+              }
+            },
+            "y": {
+              "field": "x49",
+              "type": "quantitative",
+              "title": "Rent Price",
+              "axis": {
+                "domain": false,
+                "gridColor": "#242c32",
+                "labelColor": "black",
+                "titleColor": "black",
+                "labelFontWeight": "bold",
+                "titleFontWeight": "bolder",
+                "grid": false
+              },
+              "scale": {
+                "domain": [
+                  0,
+                  2500
+                ],
+                "bins": [
+                  0,
+                  250,
+                  500,
+                  750,
+                  1000,
+                  1250,
+                  1500,
+                  1750,
+                  2000,
+                  2250,
+                  2500
+                ]
+              }
+            },
+            "color": {
+              "condition": {
+                  "test": "datum.Affordability === {param: \"Affordability\"}",
+                  "value": "gold"
+              },
+              "field": "Affordability",
+              "type": "quantitative",
+              "title": "Proportion",
+              "scale": {
+                  "range": ["green", "blue"],
+                  "domain": [10, 66]
+              }
+          },
+            "tooltip": [
+              {
+                "field": "city",
+                "type": "nominal",
+                "title": "City"
+              },
+              {
+                "field": "x49",
+                "type": "quantitative",
+                "title": "Apartment (1 bedroom) Outside of Centre (USD)"
+              },
+              {
+                "field": "Affordability",
+                "type": "quantitative",
+                "title": "Affordability"
+              }
+            ]
+          }},
           {
-            "field": "x49",
-            "type": "quantitative",
-            "title": "Apartment (1 bedroom) Outside of Centre (USD)"
+            "mark": "text",
+            "transform": [
+              {
+                "filter": "datum.rank === 1 || datum.rank === {param: 'Affordability_Selection'}"
+              },
+              {
+                "calculate": "datum.city + ' is the least affordable'",
+                "as": "leastAffordableLabel"
+              }
+            ],
+            "encoding": {
+              "x": {
+                "field": "x54",
+                "type": "quantitative"
+              },
+              "y": {
+                "field": "x49",
+                "type": "quantitative"
+              },
+              "text": {
+                "field": "leastAffordableLabel",
+                "type": "nominal"
+                
+              }
+            }
           },
           {
-            "field": "Affordability",
-            "type": "quantitative",
-            "title": "Affordability"
+            "mark": "text",
+            "transform": [
+              {
+                "filter": "datum.city == 'Darwin'"
+              }
+            ],
+            "encoding": {
+              "x": {
+                "field": "x54",
+                "type": "quantitative"
+              },
+              "y": {
+                "field": "x49",
+                "type": "quantitative"
+              },
+              "text": {
+                "value": "Darwin is the most affordable"
+              }
+            }
           }
         ]
       }
+    ],
+    "config": {
+      "style": {
+        "geoshape": {
+          "stroke": "black",
+          "strokeWidth": 0.5
+        }
+      }
     }
-  ],
-  "config": {"style": {"geoshape": {"stroke": "black", "strokeWidth": 0.5}}
-  }}
+  }

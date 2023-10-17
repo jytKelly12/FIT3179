@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Open Sans', sans-serif;
   background-color: #AEC6CF; 
@@ -6,53 +7,73 @@ body {
 }
 
 .page {
-  width: 80%; /* Responsive width */
+  max-width: 1200px;
   background-color: #faf0e6;
-  margin: auto;
-  padding: 50px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth perception */
+  margin: 2rem auto;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.header {
+  font-size: 10rem;
+  font-weight: bold;
+  color: #0b0b64;
 }
 
-.header {
-  text-align: center;
-  padding: 20px;
-  background-color: #FFCCB6; 
-  font-size: 1000;
-  font-weight: bolder;
+.header, .title, .subtitle {
+  margin: 0;
+  padding: 0.5rem 0;
 }
 
 .title {
-  padding: 10px;
-  background-color: #AEC6CF; 
-  font-size: 10;
-  font-weight: bolder;
+  font-size: 1.5rem;
+  color: #0b0b64;
+  font-weight: bold;
   text-transform: uppercase;
   font-family: 'AR One Sans', sans-serif;
-  margin-left: 20px; 
-  margin-right: 20px; 
+  margin: 1rem 0;
 }
 
 
-.introduction,
-.map,
-.visualizations {
-  margin: 30px 0; /* Added margin for better spacing */
-}
-
-/* Add this CSS code to your styles.css file */
-.vis-container {
-  display: inline-block;
-  width: 40; /* Adjust the width as needed */
-  margin-right: 300; /* Add some spacing between the visualizations */
-  vertical-align: top; /* Align the visualizations to the top */
-  box-sizing: border-box; /* Include padding and border in the width calculation */
+.subtitle {
+  font-size: 1rem;
+  background-color: #AEC6CF;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'AR One Sans', sans-serif;
+  margin: 1rem 0;
 }
 
 
+
+.pure-u-3-5 {
+  margin-left: 90px;
+  margin-right: 0px;
+}
+
+.vis-box {
+  border: 5px solid #AEC6CF;
+  padding: 15px; 
+  margin: 10px 0; 
+  background-color: #faf0e6; 
+  border-radius: 5px; 
+}
+
+.blue-line {
+  width: 100%;
+  height: 5px;
+  background-color: #0b0b64;
+  margin: 1rem 0;
+}
+
+#vis5 {
+  margin-right: 0px; /* Adjust this value as needed */
+}
 
 .bodytext {
-  font-weight: 100;
+  font-size: 1rem;
+  color: white;
   font-family: 'AR One Sans', sans-serif;
+  line-height: 1.5;
 }
 
 .blue-font {
@@ -73,12 +94,22 @@ body {
   border-top: 2px dashed #000; /* Adjust the color and thickness as needed */
 }
 
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
+  grid-gap: 1rem;
 }
 
+.bodytext-container {
+  background-color: #B7C9E2;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px
+  
+ 
+}
 
 #vis4 {
   grid-column: 1 / span 2;  /* This will make it span columns 1 and 2 */
@@ -114,8 +145,15 @@ body {
   height: 300px;  /* Adjust as needed */
 }
 
-
-
 .column {
   width: 60%; /* Adjust as needed */
 }
+
+.percentage-text {
+  color: darkblue;
+  margin-left: 40px;
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+.bolded { font-weight: bolder; }

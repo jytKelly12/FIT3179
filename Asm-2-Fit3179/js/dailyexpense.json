@@ -5,6 +5,7 @@
   "height": 400,
   "title": {
     "text": "Overview Expenses",
+    "subtitle": ["For a female who takes commutes public transport", "and rent a one bedroom apartment "],
     "fontSize": 15,
     "color": "black"
   },
@@ -36,7 +37,8 @@
                   "Brisbane",
                   "Adelaide",
                   "Canberra",
-                  "Gold Coast"
+                  "Gold Coast", 
+                  "Perth"
               ],
               "labels": [
                   "Melbourne",
@@ -44,7 +46,8 @@
                   "Brisbane",
                   "Adelaide",
                   "Canberra",
-                  "Gold Coast"
+                  "Gold Coast",
+                  "Perth"
               ],
               "name": "City Selection:"
           }
@@ -105,11 +108,11 @@
                           "Sports"
                       ],
                       "range": [
-                          "#ABDEEE",
-                          "#CBAACB",
-                          "#FFFFB5",
-                          "#C9E4DE",
-                          "#FCD5CE"
+                          "#218380",
+                          "#8F2D56",
+                          "#0075A2",
+                          "#481620",
+                          "#FFBC42"
                       ]
                   }
               },

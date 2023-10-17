@@ -49,7 +49,7 @@
         "scale": {
           "domain": ["Melbourne", "Sydney", "Canberra", "Brisbane", "Gold Coast", "Adelaide", "Perth"],
           "range": ["#ABDEEE", "#CBAACB", "#FFFFB5", "#C9E4DE", "#ffb3ba", "#ffdfba", "#84b6f4"]
-        }
+        },"legend": null
       },
       "tooltip": [
         {"field": "city", "title": "City"},

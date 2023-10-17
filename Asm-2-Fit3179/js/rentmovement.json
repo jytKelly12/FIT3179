@@ -11,7 +11,7 @@
       "bind": {
         "input": "select",
         "options": ["Australia", "Brisbane", "Melbourne", "Sydney"],
-        "name": "Selector City" 
+        "name": "Selector City"
       }
     }
   ],
@@ -27,70 +27,46 @@
       "filter": "datum.Location === selectedCity || selectedCity === 'All Locations'"
     }
   ],
-  "vconcat": [
-    {
-      "width": 900,
-      "height": 340,
-      "mark": "area",
-      "encoding": {
-        "x": {
-          "field": "Date",
-          "type": "ordinal",
-          "sort": {
-            "field": "sort_order",
-            "order": "ascending"
-          },
-          "scale": { "domain": { "param": "brush" } },
-          "axis": { "title": "", "tickCount": 10 }
-        },
-        "y": {
-          "field": "Annual Movement (%)",
-          "type": "quantitative",
-          "title": "Annual Movement (%)"
-        },
-        "color": {
-          "field": "Location",
-          "type": "nominal",
-          "title": "Location"
-        },
-        "tooltip": [
-          { "field": "Date", "type": "ordinal" },
-          { "field": "Location", "type": "nominal" },
-          { "field": "Annual Movement (%)", "type": "quantitative" }
-        ]
+  "width": 600,
+  "height": 340,
+  "mark": "area",
+  "encoding": {
+    "x": {
+      "field": "Date",
+      "type": "ordinal",
+      "sort": {
+        "field": "sort_order",
+        "order": "ascending"
+      },
+      "axis": {
+        "title": "",
+        "tickCount": 10,
+        "labelExpr": "slice(datum.label, 0, 4) == 'Jun-' ? datum.label : ''"
       }
     },
-    {
-      "width": 900,
-      "height": 60,
-      "mark": "area",
-      "params": [
-        { "name": "brush", "select": { "type": "interval", "encodings": ["x"] } }
-      ],
-      "encoding": {
-        "x": {
-          "field": "Date",
-          "type": "ordinal",
-          "sort": {
-            "field": "sort_order",
-            "order": "ascending"
-          },
-          "axis": { "tickCount": 10 }
-        },
-        "y": {
-          "field": "Annual Movement (%)",
-          "type": "quantitative",
-          "axis": { "tickCount": 3, "grid": false }
-        },
-        "color": {
-          "field": "Location",
-          "type": "nominal",
-          "scale": {
-            "domain": ["Australia", "Brisbane", "Melbourne", "Sydney"],
-            "range": ["#1f77b4", "#ff7f0e", "#D291Bc", "#d62728"]
-          }
-        }
+    "y": {
+      "field": "Annual Movement (%)",
+      "type": "quantitative",
+      "title": "Annual Movement (%)",
+      "scale": { "domain": [-4, 12] }  
+    },
+    "color": {
+      "condition": {
+        "test": "datum['Annual Movement (%)'] < 0",
+        "value": "red"
+      },
+      "field": "Location",
+      "type": "nominal",
+      "title": "Location",
+      "scale": {
+        "domain": ["Australia", "Brisbane", "Melbourne", "Sydney"],
+        "range": ["#1f77b4", "#ff7f0e", "#D291Bc", "#d62728"]
       }
-    }
-  ]
+    },
+    "tooltip": [
+      { "field": "Date", "type": "ordinal" },
+      { "field": "Location", "type": "nominal" },
+      { "field": "Annual Movement (%)", "type": "quantitative" }
+    ]
+  }
 }

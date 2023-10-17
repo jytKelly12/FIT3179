@@ -1,0 +1,199 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "background": "#faf0e6",
+  "hconcat": [
+    {
+      "width": 150,
+      "data": {
+        "url": "https://raw.githubusercontent.com/jytKelly12/FIT3179/main/Food%20Prices.csv"
+      },
+      "title": "Bread",
+      "transform": [
+        {
+          "filter": "datum['Country '] === 'Australia' && datum['Month '] === '5' && datum['Food Item '] === 'Bread'"
+        }
+      ],
+      "layer": [
+        {
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Year ", "type": "ordinal", "title": "Year"},
+            "y": {
+              "field": "Average Price ",
+              "type": "quantitative",
+              "title": "Average Price"
+            },
+            "color": {
+              "field": "Year ",
+              "type": "nominal",
+              "scale": {
+                "domain": ["2018", "2019", "2020", "2021", "2022"],
+                "range": ["#D4DF9E", "#6B654B", "#4A4B2F", "#30321C", "#12100E"]
+              },
+              "title": "Date",
+              "legend": null
+            },
+            "tooltip": [
+              {"field": "Food Item ", "type": "nominal", "title": "Food"},
+              {"field": "Year ", "type": "ordinal", "title": "Date"},
+              {"field": "Average Price ", "type": "quantitative", "title": "Average monthly price"}
+            ]
+          }
+        },
+        {
+          "mark": {"type": "line", "size": 1},
+          "encoding": {
+            "x": {"field": "Year ", "type": "ordinal"},
+            "y": {"field": "Average Price ", "type": "quantitative"},
+            "color": {"value": "black"}
+          }
+        }
+      ]
+    },
+    {
+      "width": 150,
+      "data": {
+        "url": "https://raw.githubusercontent.com/jytKelly12/FIT3179/main/Food%20Prices.csv"
+      },
+       "title": "Milk",
+      "transform": [
+        {
+          "filter": "datum['Country '] === 'Australia' && datum['Month '] === '5' && datum['Food Item '] === 'Milk'"
+        }
+      ],
+      "layer": [
+        {
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Year ", "type": "ordinal", "title": "Year"},
+            "y": {
+              "field": "Average Price ",
+              "type": "quantitative",
+              "title": "Average Price"
+            },
+            "color": {
+              "field": "Year ",
+              "type": "nominal",
+              "scale": {
+                "domain": ["2018", "2019", "2020", "2021", "2022"],
+                "range": ["#D4DF9E", "#6B654B", "#4A4B2F", "#30321C", "#12100E"]
+              },
+              "title": "Date",
+              "legend": null
+            },
+            "tooltip": [
+              {"field": "Food Item ", "type": "nominal", "title": "Food"},
+              {"field": "Year ", "type": "ordinal", "title": "Date"},
+              {"field": "Average Price ", "type": "quantitative", "title": "Average monthly price"}
+            ]
+          }
+        },
+        {
+          "mark": {"type": "line", "size": 1},
+          "encoding": {
+            "x": {"field": "Year ", "type": "ordinal"},
+            "y": {"field": "Average Price ", "type": "quantitative"},
+            "color": {"value": "black"}
+          }
+        }
+      ]
+    },
+    {
+      "width": 150,
+      "data": {
+        "url": "https://raw.githubusercontent.com/jytKelly12/FIT3179/main/Food%20Prices.csv"
+      },
+       "title": "Eggs",
+      "transform": [
+        {
+          "filter": "datum['Country '] === 'Australia' && datum['Month '] === '5' && datum['Food Item '] === 'Eggs'"
+        }
+      ],
+      "layer": [
+        {
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Year ", "type": "ordinal", "title": "Year"},
+            "y": {
+              "field": "Average Price ",
+              "type": "quantitative",
+              "title": "Average Price"
+            },
+            "color": {
+              "field": "Year ",
+              "type": "nominal",
+              "scale": {
+                "domain": ["2018", "2019", "2020", "2021", "2022"],
+                "range": ["#D4DF9E", "#6B654B", "#4A4B2F", "#30321C", "#12100E"]
+              },
+              "title": "Date",
+              "legend": null
+            },
+            "tooltip": [
+              {"field": "Food Item ", "type": "nominal", "title": "Food"},
+              {"field": "Year ", "type": "ordinal", "title": "Date"},
+              {"field": "Average Price ", "type": "quantitative", "title": "Average monthly price"}
+            ]
+          }
+        },
+        {
+          "mark": {"type": "line", "size": 1},
+          "encoding": {
+            "x": {"field": "Year ", "type": "ordinal"},
+            "y": {"field": "Average Price ", "type": "quantitative"},
+            "color": {"value": "black"}
+          }
+        }
+      ]
+    },
+    {
+      "width": 150,
+      "data": {
+        "url": "https://raw.githubusercontent.com/jytKelly12/FIT3179/main/Food%20Prices.csv"
+      },
+       "title": "Potatoes",
+      "transform": [
+        {
+          "filter": "datum['Country '] === 'Australia' && datum['Month '] === '5' && datum['Food Item '] === 'Potatoes'"
+        }
+      ],
+      "layer": [
+        {
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "Year ", "type": "ordinal", "title": "Year"},
+            "y": {
+              "field": "Average Price ",
+              "type": "quantitative",
+              "title": "Average Price"
+            },
+            "color": {
+              "field": "Year ",
+              "type": "nominal",
+              "scale": {
+                "domain": ["2018", "2019", "2020", "2021", "2022"],
+                "range": ["#D4DF9E", "#6B654B", "#4A4B2F", "#30321C", "#12100E"]
+              },
+              "title": "Date",
+              "legend": null
+            },
+            "tooltip": [
+              {"field": "Food Item ", "type": "nominal", "title": "Food"},
+              {"field": "Year ", "type": "ordinal", "title": "Date"},
+              {"field": "Average Price ", "type": "quantitative", "title": "Average monthly price"}
+            ]
+          }
+        },
+        {
+          "mark": {"type": "line", "size": 1},
+          "encoding": {
+            "x": {"field": "Year ", "type": "ordinal"},
+            "y": {"field": "Average Price ", "type": "quantitative"},
+            "color": {"value": "black"}
+          }
+        }
+      ]
+    }
+  ]
+}
+

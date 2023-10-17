@@ -26,143 +26,272 @@
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=AR+One+Sans&display=swap">
 
-
 </head>
 
 <body>
+
   <div class="page">
-    <!-- Header Section -->
     <header>
-      <h1 class="header">Cost of Living </h1>
+      <h1 class="header">Cost of Living</h1>
+      <hr class="blue-line">
+      <h2 class="title">Australia is the 14th Most Expensive Country in the World</h2>
     </header>
-    <h1 class="title">Australia is the 6th Most Expensive Country in the World</h1>
 
+    <div class="vis-box">
+      <section class="pure-g visualizations">
+        <div class="pure-u-1-4">
 
-    <!-- Map Section -->
+          <p style="font-size: 18px;"><b>Cost of Living Index</b> is a relative </p>
+          <p style="font-size: 18px;">indicator of consumer goods  </p>
+          <p style="font-size: 18px;">prices, restaurants, transportation</p>
+          <p style="font-size: 18px;">and utilities. </p>
+      
+        </div><br>
+        <div class="pure-u-1-4">
+
+          <p style="font-size: 18px;">Eg: If a country has a Cost of</p>
+          <p style="font-size: 18px;">Living Index of 120, it means </p>
+          <p style="font-size: 18px;">that it is 20% more expensive </p>
+          <p style="font-size: 18px;">than New York</p>
+
+        </div>
+
+        <div class="pure-u-1-4">
+          <p style="font-size: 18px;">The rank is based on the cost of </p>
+          <p style="font-size: 18px;">living index </p>
+        </div>
+
+        <div class="pure-u-1-4">
+          <p style="font-size: 18px;">Eg: <span style="color: #fdbe85;font-weight: bolder;">Pakistan</span> with rank 139 has the</p>
+          <p style="font-size: 18px;">lowest cost of living index </p>
+        </div>
+
+      </section>
+    </div>
+
     <section class="pure-g visualizations">
-      <div class="pure-u-3-4">
+
+      <div class="pure-u-2-3">
         <div id="mapContainer" class="vis-container"></div>
       </div>
-      <div class="pure-u-1-4">
-        <h5 class="bodytext">Cost of Living Index (Excl. Rent) is a </h5>
-        <h5 class="bodytext">relative indicator of consumer goods prices,</h5>
-        <h5 class="bodytext">including groceries, restaurants,transportation </h5>
-        <h5 class="bodytext">and utilities. Cost of Living Index does not</h5>
-        <h5 class="bodytext">includes accommodation expenses such as rent </h5>
-        <h5 class="bodytext">or mortgage.</h5>
+      <div class="pure-u-1-3">
 
-        <div class="dashed-line"></div>
-        <h5 class="bodytext">If a country has a Cost of Living Index of</h5>
-        <h5 class="bodytext">120, it means Numbeo has estimated it is </h5>
-        <h5 class="bodytext">20% more expensive than New York </h5>
-        <h5 class="bodytext">(excluding rent)</h5>
+        <p style="font-size: 18px;">The map visualisation displays the cost of living of </p>
+        <p style="font-size: 18px;">countries around the world</p>
+        <br>
+        <p style="font-size: 18px;">The <b>colour</b> of the country depicts the degree of </p>
+        <p style="font-size: 18px;">cost of living in a country</p>
+        <br>
+        <p style="font-size: 18px;"> <b>Australia</b> has a relatively high cost of living </p>
+        <p style="font-size: 18px;">index indicated by the dark colour of Australia</p>
+        <br>
+        <p style="font-size: 18px;">Cost of Index of Australia is <b>77.75</b></p>
+        <br>
+        <p style="font-size: 18px;"><b>Europe</b> is populated with the most amount of countries </p>
+        <p style="font-size: 18px;">with high cost of living index</p>
+
       </div>
-
 
     </section>
-    <div class="dashed-line"></div>
 
-    <h1 class="title"> Cost of services for Australia</h1>
-    <section class="pure-g visualizations">
-
-      <div class="pure-u-4-5"> <!-- "vis6" will fill 2/3 of the space -->
-
-        <div id="vis6" class="vis-container"></div>
-      </div>
-      <div class="pure-u-1-5"> <!-- "vis6" will fill 2/3 of the space -->
-        <h5 class="bodytext">The cost of insurance and financial </h5>
-        <h5 class="bodytext"> services exhibits a pronounced  </h5>
-        <h5 class="bodytext">annual growth, as illustrated by </h5>
-        <h5 class="bodytext">the steep upward trajectory in  </h5>
-        <h5 class="bodytext">the line chart. </h5>
-      
-        <div class="dashed-line"></div>
-
-        <h5 class="bodytext">The cost of maintenance demonstrates</h5>
-        <h5 class="bodytext"> minimal fluctuations, as reflected  </h5>
-        <h5 class="bodytext">in the marginal changes depicted </h5>
-        <h5 class="bodytext">in the chart.</h5>
-
-
-      </div>
-    </section>
-    <h1 class="title"> Annual increase in rent</h1>
-
-    <section class="pure-g visualizations">
-      <div class="pure-u-4-5">
-        <div id="vis7" class="vis-container"></div>
-      </div>
-      <div class="pure-u-1-5">
-
-        <h5 class="bodytext">Rental prices rose 6.7 per cent annually. </h5>
-        <h5 class="bodytext">This is the largest annual rise since 2009, </h5>
-        <h5 class="bodytext">reflecting low vacancy rates amid a tight
-        </h5>
-        <h5 class="bodytext">
-          rental market across the country. </h5>
-      </div>
     </section>
 
-    <div class="dashed-line"></div>
-    <h1 class="title">Distribution of daily expenses in Australia</h1>
-    <section class="grid-container">
-      <div id="vis4" class="vis1-container"></div>
-      <div id="vis3" class="vis1-container"></div>
-      <div id="vis8" class="vis1-container"></div>
-      <div id="vis9" class="vis1-container"></div>
-      <div id="vis10" class="vis1-container"></div>
-    </section>
-    <div class="dashed-line"></div>
+    <h2 class="title" style="color: rgb(218, 60, 2); font-weight: bolder;font-size: 40px;">Dive into
+      indices in major cities in AUSTRALIA</h1>
+      <hr class="blue-line">
+      <div class="vis-box">
+      <section class="pure-g visualizations">
+        <div class="pure-u-1-4">
+          <p style="font-size: 18px;"><b>Rent index</b> is an estimation of prices</p>
+          <p style="font-size: 18px;"> of renting apartments in the city </p>
+          <p style="font-size: 18px;">compared to NYC</p>
+          <br>
+          <p style="font-size: 18px;"><b>Local Purchasing Power </b>shows </p>
+          <p style="font-size: 18px;">relative purchasing power in </p>
+          <p style="font-size: 18px;">buying goods and  services in</p>
+          <p style="font-size: 18px;"> a given city  for the average  </p>
+          <p style="font-size: 18px;">net salary in that city</p>
+     
+        </div>
+
+        <div class="pure-u-1-4">
+          <p style="font-size: 18px;"> <b>Grocery Index</b> provides estimation of  </p>
+          <p style="font-size: 18px;">grocery prices in the city compared </p>
+          <p style="font-size: 18px;">to NYC </p>
+        
+          <br>
+          <p style="font-size: 18px;"><b>Restaurant Index</b> compares </p>
+          <p style="font-size: 18px;">prices of meal & drinks in </p>
+          <p style="font-size: 18px;">restaurants and bars compared </p>
+          <p style="font-size: 18px;">to NYC </p>
+   
+        </div>
+
+        <div class="pure-u-1-4">
+          <p style="font-size: 18px;">Note: The data has undergone</p>
+          <p style="font-size: 18px;">normalisation, calculating the</p>
+          <p style="font-size: 18px;">normalised index as the difference </p>
+          <p style="font-size: 18px;">between the current value and the</p>
+          <p stype="font-size: 18px;">minimum value, divided by the range </p>
+          <p stype="font-size: 18px;">(max-min).</p>
+
+        </div>
+
+        <div class="pure-u-1-4">
+          <p style="font-size: 18px;">Hint: The darker the colour of the cell, </p>
+          <p style="font-size: 18px;"> the more expensive it is to live in </p>
+          <p style="font-size: 18px;"> certain cities</p>
+        </div>
+      </section>
+    </div>
+
+      <section class="pure-g visualizations">
+        <div class="pure-u-2-5">
+          <div id="vis5" class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-6"></div>
+        <div class="pure-u-2-5">
+          <p style="font-size: 20px;">Which City is the most expensive in Australia?</p>
+
+          <p style="font-size: 18px;"> The highest cost of living index is <b>Sydney</b> indicated </p>
+          <p style="font-size: 18px;"> by the most no of red squares </p>
+          <br>
+          <p style="font-size: 18px;"> Brisbane and Sydney share a relatively similar highest </p>
+          <p style="font-size: 18px;"> groceries index among major cities in Australia, with </p>
+          <p style="font-size: 18px;"> Brisbane registering at 79.33 and Sydney at 79.65. </p>
+          <br>
+          <p style="font-size: 18px;"> Perth has the highest purchasing power index </p>
+          <p style="font-size: 18px;"> This high index not only signifies the city's</p>
+          <p style="font-size: 18px;"> strong local currency and relatively lower cost of living
+          </p>
+        </div>
+
+      </section>
+
+      <h1 class="title" style="color: rgb(218, 60, 2); font-weight: bolder;font-size: 40px;">Distribution of
+        daily
+        expenses in Australia</h1>
+
+      <hr class="blue-line">
+      <section class="grid-container">
+        <div id="vis4" class="vis1-container"></div>
+        <div id="vis3" class="vis1-container"></div>
+        <div id="vis8" class="vis1-container"></div>
+        <div id="vis9" class="vis1-container"></div>
+        <div id="vis10" class="vis1-container"></div>
+      </section>
+
+     
+      <h1 class="title" style="color: rgb(3, 114, 188); font-weight: bolder;font-size: 40px;">Annual increase in
+        rent</h1>
+
+      <hr class="blue-line">
+      <section class="pure-g visualizations">
+        <div class="pure-u-2-3">
+          <div id="vis7" class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-3">
+          <div class="bodytext-container">
+            <p>The <b>Area Chart</b> represents the annual increase </p>
+            <p>in rent. </p>
+            <br>
+            <p>In general, all cities possess <b>similar trends</b> shown </p>
+            <p>by the shape of the area charts </p>
+            <br>
+            <p> Overall, Rental prices rose <b>6.7%</b> annually in 2023.</p>
+            <p>This is the largest annual rise since 2009, </p>
+            <p>reflecting low vacancy rates amid a tight
+            </p>
+            <p>
+              rental market across the country. </p>
+            <br>
+            <p> Melbourne has the lowest annual increase in rent </p>
+            <p>movement overall compared to Brisbane and Sydney</p>
+          </div>
+        </div>
+      </section>
 
 
-    <section class="pure-g visualizations">
-      <div class="pure-u-1-2">
-        <h1 class="title"> Affordability of Apartments Inside and Outside City Center</h1>
+
+      <h2 class="title" style="color: #800080; font-weight: bolder;font-size: 40px;">Affordability of
+        Apartment Rent</h1>
+        <hr class="blue-line">
+        <div class="vis-box">
+        <section class="pure-g visualizations">
+          <div class="pure-u-1-4">
+            <p style="font-size: 18px;"><b>Affordability </b>measures the</p>
+            <p style="font-size: 18px;">proportion of salary used to cover </p>
+            <p style="font-size: 18px;">the apartment rent costs </p>
+            <br>
+            <p style="font-size: 18px;">The apartments rent in the city</p>
+            <p style="font-size: 18px;">center are generally <span style="color: rgb(0, 55, 255);font-weight: bolder;">more</span> </p>
+            <p style="font-size: 18px;"><span style="color: rgb(0, 55, 255);font-weight: bolder;">expensive</span> than apartments </p>
+            <p style="font-size: 18px;">outside city center</p>
+        
+          </div>
+
+            <div class="pure-u-1-4">
+              <p style="font-size: 18px;">This metrics investigates whether</p>
+              <p style="font-size: 18px;">Australians are earning enough</p>
+              <p style="font-size: 18px;">to meet the costs of apartment </p>
+              <p style="font-size: 18px;">rents </p></div>
+              
+          <div class="pure-u-1-4">
+            <p style="font-size: 18px;"><b>Note:</b> Each circle & square </p>
+            <p style="font-size: 18px;">represents a city in Australia. </p>
+            <p style="font-size: 18px;">Hover over a circle/square to</p>
+            <p style="font-size: 18px;">display additional information </p>
+          </div>
+
+          <div class="pure-u-1-4">
+            <p style="font-size: 18px;">The cost of apartment rents both</p>
+            <p style="font-size: 18px;">within and outside the city center </p>
+            <p style="font-size: 18px;">shows city center</p>
+            <br>
+            <p style="font-size: 18px;">Both falls within the range of 500</p>
+            <p style="font-size: 18px;">and 2250 per month (USD)</p>
+
+          </div>
+        </div>
+        </section>
 
         <div id="vis2" class="vis-container"></div>
+        <h1 class="title" style="color: green; font-weight: bolder;font-size: 40px;">The increase price in staple foods
+
+        </h1>
+        <hr class="blue-line">
         <section class="pure-g visualizations">
           <div class="pure-u-1-2">
-            <h5 class="bodytext">Note: Each circle & square represents  </h5>
-            <h5 class="bodytext">a city in Australia. </h5>
-            <h5 class="bodytext">Hover over a circle/square to display</h5>
-            <h5 class="bodytext">additional information </h5>
+            <p style="font-size: 18px;">Eggs shows the biggest increase in price illustrated</p>
+            <p style="font-size: 18px;">by the steep upward trajectory in the line chart. </p>
           </div>
+         
+
           <div class="pure-u-1-2">
-            <h5 class="bodytext">Affordability is assessed by calculating</h5>
-            <h5 class="bodytext">the affordability index, which involves  </h5>
-            <h5 class="bodytext">subtracting the monthly rent price from  </h5>
-            <h5 class="bodytext">the monthly salary.  The higher the  </h5>
-            <h5 class="bodytext">affordability index, the better the</h5>
-            <h5 class="bodytext"> rent cost in the city </h5>
-      
+            <p style="font-size: 18px;">The cost of potatoes demonstrates minimal fluctuations, as
+              reflected </p>
+            <p style="font-size: 18px;">in the marginal changes depicted in the chart.</p>
           </div>
-
+  
         </section>
-
-      </div>
-      <div class="pure-u-1-2">
-        <h1 class="title">Cost of living index in major cities of Australia </h1>
-
-        <div id="vis5" class="vis-container"></div>
+  
         <section class="pure-g visualizations">
-          <div class="pure-u-1-2">
-            <h5 class="bodytext">Note: The data has undergone normalisation, </h5>
-            <h5 class="bodytext">calculating the normalised index as the</h5>
-            <h5 class="bodytext">difference between the current value and the </h5>
-            <h5 class="bodytext"> minimum value, divided by the range (max-min).</h5>
+          <div class="pure-u-1-3"> <!-- "vis6" will fill 1/3 of the space -->
+            <div class="vis-box">
+              <p style="font-size: 20px;">Households are paying $5.35 in <span style="color: #12100E;font-weight: bolder;">2022</span> </p>
+              <p style="font-size: 20px;">for eggs compared to $3.15 in <span style="color: #D4DF9E;font-weight: bolder;">2018</span> </p>
+              <br>
+              <p style="font-size: 18px;">This is almost 70% increase in price </p>
+            </div> <br>
           </div>
-          <div class="pure-u-1-2">
-            <h5 class="bodytext">Hint: The darker the colour of the cell, </h5>
-            <h5 class="bodytext"> the more expensive it is to live in </h5>
-            <h5 class="bodytext"> certain cities</h5>
+          <div class="pure-u-2-3"> <!-- "vis6" will fill 2/3 of the space -->
+            <div id="vis6" class="vis-container"></div>
           </div>
         </section>
-
-      </div>
-    </section>
-
-
+  
   </div>
+
+  
 
   </div> <!-- end page -->
 
@@ -172,12 +301,13 @@
     var specVis3 = "js/transport.json";
     var specVis4 = "js/dailyexpense.json";
     var specVis5 = "js/colpercities.json";
-    var specVis6 = "js/services.json";
+    var specVis6 = "js/staplefoods.json";
     var specVis7 = "js/rentmovement.json";
     var specVis8 = "js/utilities.json";
     var specVis9 = "js/clothing.json";
     var specVis10 = "js/restaurant.json";
-    var specMap = "js/symbol_map.vg.json";
+    var specVis11 = "js/servicespt2.json";
+    var specMap = "js/map.json";
 
     vegaEmbed('#mapContainer', specMap, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
@@ -216,6 +346,10 @@
     }).catch(console.error);
 
     vegaEmbed('#vis10', specVis10, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis11', specVis11, { "actions": false }).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
   </script>

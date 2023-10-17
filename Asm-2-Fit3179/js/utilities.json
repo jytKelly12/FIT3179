@@ -4,6 +4,7 @@
     "background": "#faf0e6",
     "title": {
       "text": "Utilities",
+      "subtitle":"Basic utilities: Electricity, heating, water, Garbage for a 85m2 Apartment",
       "fontSize": 15,
       "color": "black"
     },
@@ -17,7 +18,7 @@
         "bind": {
           "input": "select",
           "options": ["x36", "x37", "x38"],
-          "labels": ["Basic Utilities", "Internet", "Mobile Phone Data"],
+          "labels": ["Basic Utilities", "Internet - 60 Mbps or more", "Mobile Phone Data"],
           "name": "Utilities Selection: "
         }
       }
@@ -49,7 +50,8 @@
         "scale": {
           "domain": ["Melbourne", "Sydney", "Canberra", "Brisbane", "Gold Coast", "Adelaide", "Perth"],
           "range": ["#ABDEEE", "#CBAACB", "#FFFFB5", "#C9E4DE", "#ffb3ba", "#ffdfba", "#84b6f4"]
-        }
+        } ,
+        "legend": null
       },
       "tooltip": [
         {"field": "city", "title": "City"},
