@@ -1,0 +1,159 @@
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #AEC6CF; 
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  max-width: 1200px;
+  background-color: #faf0e6;
+  margin: 2rem auto;
+  padding: 2rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.header {
+  font-size: 10rem;
+  font-weight: bold;
+  color: #0b0b64;
+}
+
+.header, .title, .subtitle {
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.title {
+  font-size: 1.5rem;
+  color: #0b0b64;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'AR One Sans', sans-serif;
+  margin: 1rem 0;
+}
+
+
+.subtitle {
+  font-size: 1rem;
+  background-color: #AEC6CF;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'AR One Sans', sans-serif;
+  margin: 1rem 0;
+}
+
+
+
+.pure-u-3-5 {
+  margin-left: 90px;
+  margin-right: 0px;
+}
+
+.vis-box {
+  border: 5px solid #AEC6CF;
+  padding: 15px; 
+  margin: 10px 0; 
+  background-color: #faf0e6; 
+  border-radius: 5px; 
+}
+
+.blue-line {
+  width: 100%;
+  height: 5px;
+  background-color: #0b0b64;
+  margin: 1rem 0;
+}
+
+#vis5 {
+  margin-right: 0px; /* Adjust this value as needed */
+}
+
+.bodytext {
+  font-size: 1rem;
+  color: white;
+  font-family: 'AR One Sans', sans-serif;
+  line-height: 1.5;
+}
+
+.blue-font {
+  font-weight: 600;
+  color: black;
+  text-transform: uppercase;
+}
+
+.line {
+  margin: 10px 0;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, black 0 5px, #0000 0 10px);
+}
+
+.dashed-line {
+  width: 100%; /* Adjust the width as needed */
+  height: 1px; /* Adjust the height as needed */
+  border-top: 2px dashed #000; /* Adjust the color and thickness as needed */
+}
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1rem;
+}
+
+.bodytext-container {
+  background-color: #B7C9E2;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px
+  
+ 
+}
+
+#vis4 {
+  grid-column: 1 / span 2;  /* This will make it span columns 1 and 2 */
+  grid-row: 1 / span 2;     /* This will make it span rows 1 and 2 */
+}
+
+#vis3 {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+#vis8 {
+  grid-column: 4;
+  grid-row: 1;
+}
+
+#vis9 {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+#vis10 {
+  grid-column: 4;
+  grid-row: 2;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vis1-container {
+  padding: 10px;
+  height: 300px;  /* Adjust as needed */
+}
+
+.column {
+  width: 60%; /* Adjust as needed */
+}
+
+.percentage-text {
+  color: darkblue;
+  margin-left: 40px;
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+.bolded { font-weight: bolder; }

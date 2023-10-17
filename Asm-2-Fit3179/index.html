@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+
+  </style>
+
+  <title></title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=AR+One+Sans&display=swap">
+
+</head>
+
+<body>
+
+  <div class="page">
+    <header>
+      <h1 class="header">Cost of Living</h1>
+      <hr class="blue-line">
+      <h2 class="title">Australia is the 14th Most Expensive Country in the World</h2>
+    </header>
+
+    <div class="vis-box">
+      <section class="pure-g visualizations">
+        <div class="pure-u-1-4">
+
+          <p style="font-size: 18px;"><b>Cost of Living Index</b> is a relative </p>
+          <p style="font-size: 18px;">indicator of consumer goods  </p>
+          <p style="font-size: 18px;">prices, restaurants, transportation</p>
+          <p style="font-size: 18px;">and utilities. </p>
+      
+        </div><br>
+        <div class="pure-u-1-4">
+          <p style="font-size: 18px;">Note: Select a continent or </p>
+          <p style="font-size: 18px;">zoom in to investigate</p>
+    
+        </div>
+        <div class="pure-u-1-4">
+
+          <p style="font-size: 18px;">Eg: If a country has a Cost of</p>
+          <p style="font-size: 18px;">Living Index of 120, it means </p>
+          <p style="font-size: 18px;">that it is 20% more expensive </p>
+          <p style="font-size: 18px;">than New York</p>
+
+        </div>
+
+        <div class="pure-u-1-4">
+          <p style="font-size: 18px;">The rank is based on the cost of </p>
+          <p style="font-size: 18px;">living index </p>
+       
+          <p style="font-size: 18px;">Eg: <span style="color: #fdbe85;font-weight: bolder;">Pakistan</span> with rank 139 has</p>
+          <p style="font-size: 18px;">the lowest cost of living index </p>
+        </div>
+
+        
+
+      </section>
+    </div>
+
+    <section class="pure-g visualizations">
+
+      <div class="pure-u-2-3">
+        <div id="mapContainer" class="vis-container"></div>
+      </div>
+      <div class="pure-u-1-3">
+
+        <p style="font-size: 18px;">The map visualisation displays the cost of living </p>
+        <p style="font-size: 18px;">of countries around the world</p>
+        <br>
+        <p style="font-size: 18px;">The <b>colour</b> of the country depicts the degree </p>
+        <p style="font-size: 18px;">of cost of living in a country</p>
+        <br>
+        <p style="font-size: 18px;"> <b>Australia</b> has a relatively high cost of living </p>
+        <p style="font-size: 18px;">index indicated by the dark colour of Australia</p>
+        <br>
+        <p style="font-size: 18px;">Cost of Index of Australia is <b>77.75</b></p>
+        <br>
+        <p style="font-size: 18px;"><b>Europe</b> is populated with the most amount of countries </p>
+        <p style="font-size: 18px;">with high cost of living index</p>
+
+      </div>
+
+    </section>
+
+    </section>
+
+    <h2 class="title" style="color: rgb(218, 60, 2); font-weight: bolder;font-size: 40px;">Dive into
+      indices in major cities in AUSTRALIA</h1>
+      <hr class="blue-line">
+      <div class="vis-box">
+      <section class="pure-g visualizations">
+        <div class="pure-u-1-4">
+          <p style="font-size: 18px;"><b>Rent index</b> is an estimation of </p>
+          <p style="font-size: 18px;">prices of renting apartments in the  </p>
+          <p style="font-size: 18px;">city compared to NYC</p>
+          <br>
+          <p style="font-size: 18px;"><b>Local Purchasing Power </b>shows </p>
+          <p style="font-size: 18px;">relative purchasing power in </p>
+          <p style="font-size: 18px;">buying goods and  services in</p>
+          <p style="font-size: 18px;"> a given city  for the average  </p>
+          <p style="font-size: 18px;">net salary in that city</p>
+     
+        </div>
+
+        <div class="pure-u-1-4">
+          <p style="font-size: 18px;"> <b>Grocery Index</b> provides estimation   </p>
+          <p style="font-size: 18px;">of grocery prices in the city  </p>
+          <p style="font-size: 18px;">compared to NYC </p>
+        
+          <br>
+          <p style="font-size: 18px;"><b>Restaurant Index</b> compares </p>
+          <p style="font-size: 18px;">prices of meal & drinks in </p>
+          <p style="font-size: 18px;">restaurants and bars compared </p>
+          <p style="font-size: 18px;">to NYC </p>
+   
+        </div>
+
+        <div class="pure-u-1-4">
+          <p style="font-size: 18px;">Note: The data has undergone</p>
+          <p style="font-size: 18px;">normalisation, calculating the</p>
+          <p style="font-size: 18px;">normalised index as the difference </p>
+          <p style="font-size: 18px;">between the current value and the</p>
+          <p stype="font-size: 18px;">minimum value, divided by the range </p>
+          <p stype="font-size: 18px;">(max-min).</p>
+
+        </div>
+
+        <div class="pure-u-1-4">
+          <p style="font-size: 18px;">Hint: The darker the colour of the </p>
+          <p style="font-size: 18px;">cell, the more expensive it is to live in </p>
+          <p style="font-size: 18px;"> certain cities</p>
+        </div>
+      </section>
+    </div>
+
+      <section class="pure-g visualizations">
+        <div class="pure-u-2-5">
+          <div id="vis5" class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-6"></div>
+        <div class="pure-u-2-5">
+          <p style="font-size: 20px;">Which City is the most expensive in Australia?</p>
+
+          <p style="font-size: 18px;"> The highest cost of living index is <b>Sydney</b> indicated </p>
+          <p style="font-size: 18px;"> by the most no of red squares </p>
+          <br>
+          <p style="font-size: 18px;"> Brisbane and Sydney share a relatively similar highest </p>
+          <p style="font-size: 18px;"> groceries index among major cities in Australia, with </p>
+          <p style="font-size: 18px;"> Brisbane registering at 79.33 and Sydney at 79.65. </p>
+          <br>
+          <p style="font-size: 18px;"> Perth has the highest purchasing power index </p>
+          <p style="font-size: 18px;"> This high index not only signifies the city's</p>
+          <p style="font-size: 18px;"> strong local currency and relatively lower cost of living
+          </p>
+        </div>
+
+      </section>
+
+      <h1 class="title" style="color: rgb(218, 60, 2); font-weight: bolder;font-size: 40px;">Distribution of
+        daily
+        expenses in Australia</h1>
+
+      <hr class="blue-line">
+      <section class="grid-container">
+        <div id="vis4" class="vis1-container"></div>
+        <div id="vis3" class="vis1-container"></div>
+        <div id="vis8" class="vis1-container"></div>
+        <div id="vis9" class="vis1-container"></div>
+        <div id="vis10" class="vis1-container"></div>
+      </section>
+
+     
+      <h1 class="title" style="color: rgb(3, 114, 188); font-weight: bolder;font-size: 40px;">Annual increase in
+        rent</h1>
+
+      <hr class="blue-line">
+      <section class="pure-g visualizations">
+        <div class="pure-u-2-3">
+          <div id="vis7" class="vis-container"></div>
+        </div>
+        <div class="pure-u-1-3">
+          <div class="vis-box">
+            <p style="font-size: 18px;"> Overall, Rental prices rose <b>6.7%</b> annually in 2023.</p>
+            <br>
+            <p style="font-size: 18px;">This is the largest annual rise since 2009, </p>
+            <p style="font-size: 18px;">reflecting low vacancy rates amid a tight
+            </p>
+            <p style="font-size: 18px;">
+              rental market across the country. </p>
+            <br>
+            <p style="font-size: 18px;"><span style="color: #D291Bc; font-size: 18px; font-weight: bolder;">Melbourne</span> has the lowest annual increase   </p>
+            <p style="font-size: 18px;">in rent movement overall compared to  </p>
+            <p style="font-size: 18px;"><span style="color: #ff7f0e; font-size: 18px; font-weight: bolder;">Brisbane</span> and <span style="color: #d62728; font-size: 18px; font-weight: bolder;">Sydney</span></p>
+      
+          </div>
+        </div>
+      </section>
+
+
+
+      <h2 class="title" style="color: #800080; font-weight: bolder;font-size: 40px;">Affordability of
+        Apartment Rent</h1>
+        <hr class="blue-line">
+        <div class="vis-box">
+        <section class="pure-g visualizations">
+          <div class="pure-u-1-4">
+            <p style="font-size: 18px;"><b>Affordability </b>measures the</p>
+            <p style="font-size: 18px;">proportion of salary used to cover </p>
+            <p style="font-size: 18px;">the apartment rent costs </p>
+            <br>
+            <p style="font-size: 18px;">The apartments rent in the city</p>
+            <p style="font-size: 18px;">center are generally <span style="color: rgb(0, 55, 255);font-weight: bolder;">more</span> </p>
+            <p style="font-size: 18px;"><span style="color: rgb(0, 55, 255);font-weight: bolder;">expensive</span> than apartments </p>
+            <p style="font-size: 18px;">outside city center</p>
+        
+          </div>
+
+            <div class="pure-u-1-4">
+              <p style="font-size: 18px;">This metrics investigates whether</p>
+              <p style="font-size: 18px;">Australians are earning enough</p>
+              <p style="font-size: 18px;">to meet the costs of apartment </p>
+              <p style="font-size: 18px;">rents </p></div>
+              
+          <div class="pure-u-1-4">
+            <p style="font-size: 18px;"><b>Note:</b> Each circle & square </p>
+            <p style="font-size: 18px;">represents a city in Australia. </p>
+            <p style="font-size: 18px;">Hover over a circle/square to</p>
+            <p style="font-size: 18px;">display additional information </p>
+          </div>
+
+          <div class="pure-u-1-4">
+            <p style="font-size: 18px;">The cost of apartment rents both</p>
+            <p style="font-size: 18px;">within and outside the city center </p>
+            <p style="font-size: 18px;">shows city center</p>
+            <br>
+            <p style="font-size: 18px;">Both falls within the range of 500</p>
+            <p style="font-size: 18px;">and 2250 per month (USD)</p>
+
+          </div>
+        </div>
+        </section>
+
+        <div id="vis2" class="vis-container"></div>
+        <h1 class="title" style="color: green; font-weight: bolder;font-size: 40px;">The increase price in staple foods
+
+        </h1>
+        <hr class="blue-line">
+        <section class="pure-g visualizations">
+          <div class="pure-u-1-2">
+            <p style="font-size: 18px;">All staple foods experience an increase in cost</p>
+            <p style="font-size: 18px;">shown by the upward trajectory in the line chart. </p>
+          </div>
+         
+
+          <div class="pure-u-1-2">
+            <p style="font-size: 18px;">The cost of potatoes demonstrates the least fluctuations</p>
+            <p style="font-size: 18px;">shown by the marginal changes depicted in the chart.</p>
+          </div>
+  
+        </section>
+  
+        <section class="pure-g visualizations">
+          <div class="pure-u-1-3"> <!-- "vis6" will fill 1/3 of the space -->
+            <div class="vis-box">
+              <p style="font-size: 20px;">Households are paying $5.35 in <span style="color: #12100E;font-weight: bolder;">2022</span> </p>
+              <p style="font-size: 20px;">for eggs compared to $3.15 in <span style="color: #D4DF9E;font-weight: bolder;">2018</span> </p>
+              <br>
+              <p style="font-size: 18px;">This is almost 70% increase in price </p>
+            </div> <br>
+          </div>
+          <div class="pure-u-2-3"> <!-- "vis6" will fill 2/3 of the space -->
+            <div id="vis6" class="vis-container"></div>
+          </div>
+        </section>
+  
+  </div>
+
+  
+
+  </div> <!-- end page -->
+
+  <script type="text/javascript">
+    var specVis1 = "js/normalised-stacked-bars-responsive.json";
+    var specVis2 = "js/salaryvsrent.json";
+    var specVis3 = "js/transport.json";
+    var specVis4 = "js/dailyexpense.json";
+    var specVis5 = "js/colpercities.json";
+    var specVis6 = "js/staplefoods.json";
+    var specVis7 = "js/rentmovement.json";
+    var specVis8 = "js/utilities.json";
+    var specVis9 = "js/clothing.json";
+    var specVis10 = "js/restaurant.json";
+    var specVis11 = "js/servicespt2.json";
+    var specMap = "js/map.json";
+
+    vegaEmbed('#mapContainer', specMap, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis6', specVis6, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis7', specVis7, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis8', specVis8, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis9', specVis9, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis10', specVis10, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis11', specVis11, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+  </script>
+</body>
+
+</html>
